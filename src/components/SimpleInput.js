@@ -11,6 +11,8 @@ const SimpleInput = (props) => {
     setEnteredName(event.target.value)
   }
 
+  const nameInput
+
   const formSubmissionHandler = event => {
     event.preventDefault()
 
