@@ -7,18 +7,18 @@ const SimpleInput = (props) => {
     hasError: nameInputHasError,
     valueChangeHandler: nameChangedHandler,
     inputBlurHandler: nameBlurHandler,
-    reset: resetNameInput
-  } = useInput(value => value.trim() !== '');
+    reset: resetNameInput,
+  } = useInput((value) => value.trim() !== '');
 
-  const { 
+  const {
     value: enteredEmail,
-    isValid: enteredEmailIsInvalid, 
-    hasError: emailInputHasError, 
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-    reset: resetEmailInput
-        } = useInput(value => value.includes('@'))
-  
+    reset: resetEmailInput,
+  } = useInput((value) => value.includes('@'));
+
   let formIsValid = false;
 
   if (enteredNameIsValid && enteredEmailIsValid) {
@@ -36,7 +36,7 @@ const SimpleInput = (props) => {
 
     // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM
     resetNameInput();
-    resetEmailInput()
+    resetEmailInput();
   };
 
   const nameInputClasses = nameInputHasError
